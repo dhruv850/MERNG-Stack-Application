@@ -8,7 +8,7 @@ import { Button, Form } from 'semantic-ui-react';
 import { AuthContext } from '../context/auth';
 import { useForm } from '../util/hooks';
 
-function Register(props) {
+const Register =(props) => {
   const context = useContext(AuthContext);
   const [errors, setErrors] = useState({});
 
@@ -76,7 +76,7 @@ function Register(props) {
           error={!!errors.confirmPassword}
           onChange={onChange}
         />
-        <Button type="submit" primary>
+        <Button type="submit" color="orange" >
           Register
         </Button>
       </Form>

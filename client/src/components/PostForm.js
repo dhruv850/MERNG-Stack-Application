@@ -41,7 +41,7 @@ function PostForm() {
         <h2>Create a Post</h2>
         <Form.Field>
           <Form.Input placeholder="Hi, World!" name="body" onChange={onChange} value={values.body} error={!!error} />
-          <Button type="submit" color="teal">
+          <Button type="submit" color="orange">
             Submit
           </Button>
         </Form.Field>

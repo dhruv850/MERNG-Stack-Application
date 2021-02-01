@@ -1,10 +1,4 @@
-# Full Stack MERNG Social Media App
-
-![MERNG App Screenshot](https://static1.squarespace.com/static/5313ddcde4b019c52e34ae60/t/6006602ff77a806cf0ed23c5/1611031410786/MERNG-screenshot?format=2500w)
-
-Go ahead and register a fake (or real) account and make a post to see it in action :)
-
-https://merngapp.netlify.app/
+# MERNG Stack App
 
 ## Tech Used
 

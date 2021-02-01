@@ -9,7 +9,7 @@ import { Button, Form } from 'semantic-ui-react';
 import { AuthContext } from '../context/auth';
 import { useForm } from '../util/hooks';
 
-function Login(props) {
+const Login = (props) => {
   const context = useContext(AuthContext);
   const [errors, setErrors] = useState({});
   const { onChange, onSubmit, values } = useForm(loginUserCallback, {
@@ -56,7 +56,7 @@ function Login(props) {
           error={!!errors.password}
           onChange={onChange}
         />
-        <Button type="submit" primary>
+        <Button type="submit" color="orange" >
           Login
         </Button>
       </Form>

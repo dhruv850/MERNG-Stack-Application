@@ -33,7 +33,6 @@ module.exports = {
         throw new Error('Post body must not be empty');
       }
 
-      // at this point, a user definitely exists and is authorized (otherwise error would be thrown in checkAuth)
       const newPost = new Post({
         body,
         user: user.id,
@@ -51,14 +50,12 @@ module.exports = {
     },
     async deletePost(_, { postId }, context) {
       const user = checkAuth(context);
-      // make sure it is the same user's own post
       try {
         const post = await Post.findById(postId);
         if (user.username === post.username) {
           await post.delete();
           return 'Post deleted successfully';
         }
-        // it isn't the user's own post
         throw new AuthenticationError('Action not allowed');
       } catch (err) {
         throw new Error(err);
@@ -71,10 +68,8 @@ module.exports = {
 
       if (post) {
         if (post.likes.find((like) => like.username === username)) {
-          // post is already "liked" by this user, so we will "un-like" it for them
           post.likes = post.likes.filter((like) => like.username !== username);
         } else {
-          // not "liked" yet, so we will "like" it for this user
           post.likes.push({
             username,
             createdAt: new Date().toISOString(),
@@ -83,7 +78,6 @@ module.exports = {
         await post.save();
         return post;
       }
-      // post doesn't exist
       throw new UserInputError('Post not found');
     },
   },

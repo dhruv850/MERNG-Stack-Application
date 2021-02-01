@@ -9,7 +9,7 @@ import Tooltip from '../util/Tooltip';
 import { FETCH_POSTS_QUERY } from '../util/graphql';
 
 // eslint-disable-next-line react/prop-types
-function DeleteButton({ postId, commentId, callback }) {
+const DeleteButton = ({ postId, commentId, callback }) => {
   const [confirmOpen, setConfirmOpen] = useState(false);
 
   const mutation = commentId ? DELETE_COMMENT_MUTATION : DELETE_POST_MUTATION;

@@ -11,7 +11,7 @@ import LikeButton from '../components/LikeButton';
 import DeleteButton from '../components/DeleteButton';
 import Tooltip from '../util/Tooltip';
 
-function SinglePost(props) {
+const SinglePost = (props) => {
   const { postId } = props.match.params;
   const { user } = useContext(AuthContext);
   // TODO: look up docs for useRef
@@ -50,7 +50,7 @@ function SinglePost(props) {
       <Grid>
         <Grid.Row>
           <Grid.Column width={2}>
-            <Image src="https://react.semantic-ui.com/images/avatar/large/molly.png" size="small" float="right" />
+            <Image src="https://react.semantic-ui.com/images/avatar/large/elliot.jpg" size="small" float="right" />
           </Grid.Column>
           <Grid.Column width={10}>
             <Card fluid>

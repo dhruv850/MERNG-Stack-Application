@@ -23,7 +23,7 @@ const AuthContext = createContext({
 
 // TODO: Learn more about reducers
 // A reducer basically receives an action with a type and a payload, then determines what to do based on the functionality
-function authReducer(state, action) {
+const authReducer = (state, action) =>{
   switch (action.type) {
     case 'LOGIN':
       return {
@@ -40,10 +40,10 @@ function authReducer(state, action) {
   }
 }
 
-function AuthProvider(props) {
+const AuthProvider = (props) =>{
   const [state, dispatch] = useReducer(authReducer, initialState);
 
-  function login(userData) {
+  const login = (userData) =>{
     // persist the logged in state by storing the token on the user's device
     localStorage.setItem('jwtToken', userData.token);
     dispatch({
@@ -52,7 +52,7 @@ function AuthProvider(props) {
     });
   }
 
-  function logout() {
+  const logout =() => {
     localStorage.removeItem('jwtToken');
     dispatch({ type: 'LOGOUT' });
   }

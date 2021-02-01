@@ -1,10 +1,10 @@
 import React, { useContext, useState } from 'react';
-import { Menu } from 'semantic-ui-react';
+import { Menu,Segment } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 import { AuthContext } from '../context/auth';
 
-function MenuBar() {
+const MenuBar = () => {
   const { user, logout } = useContext(AuthContext);
   // dynamically set the 'active' link by looking at the current URL
   const pathName = window.location.pathname;
@@ -14,14 +14,17 @@ function MenuBar() {
   const handleItemClick = (e, { name }) => setActiveItem(name);
 
   const menuBar = user ? (
-    <Menu pointing secondary size="massive" color="teal">
+    <Segment inverted  color='orange'>
+    <Menu inverted color='orange'  secondary size="small" >
       <Menu.Item name={user.username} active as={Link} to="/" />
       <Menu.Menu position="right">
         <Menu.Item name="logout" onClick={logout} as={Link} to="/login" />
       </Menu.Menu>
     </Menu>
+    </Segment>
   ) : (
-    <Menu pointing secondary size="massive" color="teal">
+    <Segment inverted color='orange'>
+    <Menu color='orange' inverted secondary size="small" >
       <Menu.Item name="home" active={activeItem === 'home'} onClick={handleItemClick} as={Link} to="/" />
       <Menu.Menu position="right">
         <Menu.Item name="login" active={activeItem === 'login'} onClick={handleItemClick} as={Link} to="/login" />
@@ -34,6 +37,7 @@ function MenuBar() {
         />
       </Menu.Menu>
     </Menu>
+    </Segment>
   );
 
   return menuBar;
